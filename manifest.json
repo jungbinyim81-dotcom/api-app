@@ -1,0 +1,18 @@
+{
+  "name": "API 실적분析 - 인천일병2팀",
+  "short_name": "API분析",
+  "description": "인천일병2팀 월별 API 실적분析 대시보드",
+  "start_url": ".",
+  "scope": ".",
+  "display": "standalone",
+  "background_color": "#0a3d62",
+  "theme_color": "#0a3d62",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

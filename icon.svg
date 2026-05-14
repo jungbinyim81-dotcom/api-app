@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="80" fill="#0a3d62"/>
+  <rect x="80" y="300" width="60" height="140" rx="8" fill="#74b9ff"/>
+  <rect x="180" y="220" width="60" height="220" rx="8" fill="#74b9ff"/>
+  <rect x="280" y="160" width="60" height="280" rx="8" fill="#74b9ff"/>
+  <rect x="380" y="100" width="60" height="340" rx="8" fill="#74b9ff"/>
+  <polyline points="110,290 210,210 310,150 410,90"
+            fill="none" stroke="#ffeaa7" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="110" cy="290" r="14" fill="#ffeaa7"/>
+  <circle cx="210" cy="210" r="14" fill="#ffeaa7"/>
+  <circle cx="310" cy="150" r="14" fill="#ffeaa7"/>
+  <circle cx="410" cy="90" r="14" fill="#ffeaa7"/>
+  <text x="256" y="490" font-family="Arial Black, Arial" font-size="58" font-weight="900"
+        fill="#dfe6e9" text-anchor="middle">API</text>
+</svg>
