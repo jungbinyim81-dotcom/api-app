@@ -227,7 +227,10 @@ function initSection(sectionId, cfg, badge) {
     });
 
     const lastIdx = months.length - 1;
-    const keys = Object.keys(groups).sort((a,b) => (groups[b][lastIdx]||0) - (groups[a][lastIdx]||0));
+    const keys = Object.keys(groups).sort((a,b) => {
+      if (groupBy === 'member') return parseInt(a) - parseInt(b);
+      return (groups[b][lastIdx]||0) - (groups[a][lastIdx]||0);
+    });
 
     wrap.querySelector('.group-bar .summary').innerHTML =
       '조합 ' + filtered.length.toLocaleString() + '건 · ' +
