@@ -7,6 +7,12 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
+<script>
+const VER = '20260515103116';
+const prev = localStorage.getItem('api_ver');
+if (prev && prev !== VER) { localStorage.setItem('api_ver', VER); location.reload(true); }
+else { localStorage.setItem('api_ver', VER); }
+</script>
 <style>
 * { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; }
