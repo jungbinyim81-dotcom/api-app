@@ -8,7 +8,7 @@
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
 <script>
-const VER = '20260522075122';
+const VER = '20260522081051';
 const prev = localStorage.getItem('api_ver');
 if (prev && prev !== VER) { localStorage.setItem('api_ver', VER); location.reload(true); }
 else { localStorage.setItem('api_ver', VER); }
@@ -322,6 +322,29 @@ tabBar.addEventListener('click', e => {
 
 // 초기: 첫 섹션만 표시
 if (sectionEntries.length > 0) showSection(sectionEntries[0][0]);
+
+// ── Service Worker 등록 + 즉시 업데이트 ──
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('./sw.js?v=20260522081051').then(reg => {
+    reg.update();
+    reg.addEventListener('updatefound', () => {
+      const nw = reg.installing;
+      if (!nw) return;
+      nw.addEventListener('statechange', () => {
+        if (nw.state === 'installed' && navigator.serviceWorker.controller) {
+          // 새 버전 설치됨 → 즉시 활성화 후 리로드
+          nw.postMessage({type:'SKIP_WAITING'});
+        }
+      });
+    });
+    let reloaded = false;
+    navigator.serviceWorker.addEventListener('controllerchange', () => {
+      if (reloaded) return;
+      reloaded = true;
+      location.reload();
+    });
+  });
+}
 </script>
 </body>
 </html>
