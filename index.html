@@ -8,7 +8,7 @@
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
 <script>
-const VER = '20260525165400';
+const VER = '20260527101740';
 const prev = localStorage.getItem('api_ver');
 if (prev && prev !== VER) { localStorage.setItem('api_ver', VER); location.reload(true); }
 else { localStorage.setItem('api_ver', VER); }
@@ -365,7 +365,7 @@ function initSection(sectionId, cfg, badge) {
 
     let html = '<table class="dt"><thead><tr><th class="name">'+esc(cfg.dimLabels[groupBy])+'</th>';
     months.forEach(m => html += '<th>'+fmtMonth(m)+'</th>');
-    html += '<th>합계</th></tr></thead><tbody>';
+    html += '<th>평균</th></tr></thead><tbody>';
     keys.forEach(k => {
       const name = opts[k];
       let rowSum = 0;
@@ -375,11 +375,11 @@ function initSection(sectionId, cfg, badge) {
         rowSum += v;
         html += '<td>'+fmt(v)+'</td>';
       });
-      html += '<td><b>'+fmt(rowSum)+'</b></td></tr>';
+      html += '<td><b>'+fmt(Math.round(rowSum/months.length))+'</b></td></tr>';
     });
     html += '</tbody><tfoot><tr><td class="name">합계</td>';
     months.forEach((m, mIdx) => html += '<td>'+fmt(grandByMonth[mIdx]||0)+'</td>');
-    html += '<td>'+fmt(grandTotal)+'</td></tr></tfoot></table>';
+    html += '<td>'+fmt(Math.round(grandTotal/months.length))+'</td></tr></tfoot></table>';
     resultEl.innerHTML = html;
   }
 
@@ -444,7 +444,7 @@ if (sectionEntries.length > 0) showSection(sectionEntries[0][0]);
 
 // ── Service Worker 등록 + 즉시 업데이트 ──
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('./sw.js?v=20260525165400').then(reg => {
+  navigator.serviceWorker.register('./sw.js?v=20260527101740').then(reg => {
     reg.update();
     reg.addEventListener('updatefound', () => {
       const nw = reg.installing;
