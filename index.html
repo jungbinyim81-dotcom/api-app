@@ -8,7 +8,7 @@
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
 <script>
-const VER = '20260529155639';
+const VER = '20260529160453';
 const prev = localStorage.getItem('api_ver');
 if (prev && prev !== VER) { localStorage.setItem('api_ver', VER); location.reload(true); }
 else { localStorage.setItem('api_ver', VER); }
@@ -444,7 +444,7 @@ if (sectionEntries.length > 0) showSection(sectionEntries[0][0]);
 
 // ── Service Worker 등록 + 즉시 업데이트 ──
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('./sw.js?v=20260529155639').then(reg => {
+  navigator.serviceWorker.register('./sw.js?v=20260529160453').then(reg => {
     reg.update();
     reg.addEventListener('updatefound', () => {
       const nw = reg.installing;
