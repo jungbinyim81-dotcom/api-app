@@ -1,4 +1,4 @@
-const CACHE = 'api-app-20261018102133';
+const CACHE = 'api-app-20261018105342';
 const ASSETS = ['./manifest.json', './icon.svg'];
 
 self.addEventListener('install', e => {
